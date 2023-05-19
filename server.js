@@ -22,18 +22,18 @@ app.get("/test", (req, res) => {
     });
 })
 
-app.post("/get-news", async(req, res) => {
+app.post("/get-news", async (req, res) => {
     const { url } = req.body;
-
+    console.log("get news");
     // making get request to api
-    let data = await fetch(url);
-    data = await data.json();
+    let {data} = await axios.get(url);
     
+    // console.log(data);
     res.json({
         success: true,
-        content : data
+        content: data
     })
-})
+});
 
 
 app.use("/", express.static(path.join("./public/build")));
