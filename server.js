@@ -15,7 +15,7 @@ app.use(cors({
 
 
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
     res.json({
         success: "true",
         message: "Server is running "
